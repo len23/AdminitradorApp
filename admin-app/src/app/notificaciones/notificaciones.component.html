@@ -1,6 +1,8 @@
-<mat-selection-list >
-  <mat-list-option *ngFor="let cliente of clientes">
-   {cliente}
-  </mat-list-option>
-</mat-selection-list>
+
+<h1>Notificaciones</h1>
+<mat-nav-list >
+  <mat-list-item *ngFor="let cliente of clientes">
+   {{cliente.name}}
+  </mat-list-item>
+</mat-nav-list>
 

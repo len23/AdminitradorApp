@@ -1,0 +1,14 @@
+<h1 style="font-family:verdana;">Cuentas</h1>
+<hr class="style2">
+<br>
+
+<mat-form-field>
+    <mat-select placeholder="EDIFICIO">
+      <mat-option *ngFor="let edificio of edificios" [value]="edificio.name">
+        {{edificio.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <router-outlet></router-outlet>
+  

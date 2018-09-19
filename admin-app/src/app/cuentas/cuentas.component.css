@@ -1,0 +1,13 @@
+hr.style2 {
+	border-top: 3px double #8c8b8b;
+}
+
+.example-container {
+	display: flex;
+	flex-direction: column;
+  }
+  
+  .example-container > * {
+	width: 100%;
+  }
+  
