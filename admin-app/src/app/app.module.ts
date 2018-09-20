@@ -12,6 +12,7 @@ import { DetallesEdificioComponent } from './detalles-edificio/detalles-edificio
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule }    from '@angular/common/http';
 
 import {
   MatAutocompleteModule,
@@ -111,7 +112,9 @@ import { LoginComponent } from './login/login.component';
     MatTooltipModule,
     MatTreeModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

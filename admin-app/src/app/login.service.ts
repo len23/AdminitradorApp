@@ -4,20 +4,20 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { User } from './User';
-
-@Injectable({
-  providedIn: 'root'
-})
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
+@Injectable({
+  providedIn: 'root'
+})
+
 export class LoginService {
   private loginUrl = 'http://ec2-34-194-228-205.compute-1.amazonaws.com:3000/api/Users/login';  // URL to web api
 
   constructor(private http: HttpClient,
     ) { }
 
-    addHero (usuario: User): Observable<User> {
+    logUser (usuario: User): Observable<User> {
       return this.http.post<User>(this.loginUrl, usuario, httpOptions).pipe(
         tap((usuario: User) => console.log(`logeando usuario w/ email=${usuario.email}`)),
         catchError(this.handleError<User>('logenadoUsuario'))
@@ -32,7 +32,7 @@ export class LoginService {
         console.error(error); // log to console instead
   
         // TODO: better job of transforming error for user consumption
-        this.log(`${operation} failed: ${error.message}`);
+        console.log(`${operation} failed: ${error.message}`);
   
         // Let the app keep running by returning an empty result.
         return of(result as T);

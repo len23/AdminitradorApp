@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../User';
+import { LoginService } from '../login.service';
+
 
 @Component({
   selector: 'app-login',
@@ -14,6 +16,9 @@ export class LoginComponent implements OnInit {
     "password":"1234"
   } */
 
+  constructor(private loginService: LoginService) { }
+  ngOnInit() {
+  }
 
   mensaje:string;
   model:User={
@@ -28,11 +33,18 @@ export class LoginComponent implements OnInit {
     this.submitted = true; 
     console.log('email: ',this.model.email);
     console.log('password: ',this.model.password);
+    this.logearse(this.model);
   }
 
-  ngOnInit() {
+  
+  
+  logearse(usuario:User): void {
+   
+    this.loginService.logUser(usuario)
+      .subscribe(usuario => {
+        console.log(usuario);
+      });
   }
-
  
 
 }
