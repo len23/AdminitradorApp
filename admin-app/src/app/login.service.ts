@@ -13,15 +13,18 @@ const httpOptions = {
 
 export class LoginService {
   private loginUrl = 'http://ec2-34-194-228-205.compute-1.amazonaws.com:3000/api/Users/login';  // URL to web api
-
+  isLoggedIn = false;
+  redirectUrl: string;
+  error2=false;
+  
   constructor(private http: HttpClient,
     ) { }
 
     logUser (usuario: User): Observable<User> {
       return this.http.post<User>(this.loginUrl, usuario, httpOptions).pipe(
-        tap((usuario: User) => console.log(`logeando usuario w/ email=${usuario.email}`)),
-        catchError(this.handleError<User>('logenadoUsuario'))
-      );
+/*         tap((usuario: User) => console.log(`logeando usuario w/ email=${usuario.email}`)),
+          catchError(this.handleError<User>('logenadoUsuario'))*/);
+           
     }
 
 
