@@ -4,13 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { EncabezadoComponent } from './encabezado/encabezado.component';
 import { NotificacionesComponent } from './notificaciones/notificaciones.component';
+
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CuentasComponent } from './cuentas/cuentas.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AppRoutingModule } from './app-routing.module';
 import { DetallesEdificioComponent } from './detalles-edificio/detalles-edificio.component';
-import {CdkTableModule} from '@angular/cdk/table';
-import {CdkTreeModule} from '@angular/cdk/tree';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 
@@ -54,6 +54,7 @@ import {
 
 } from '@angular/material';
 import { LoginComponent } from './login/login.component';
+import { PageNotFoundComponent } from './not-found.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { LoginComponent } from './login/login.component';
     NotificacionesComponent,
     CuentasComponent,
     DetallesEdificioComponent,
-    LoginComponent
+    LoginComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -113,7 +115,9 @@ import { LoginComponent } from './login/login.component';
     MatTreeModule,
     FormsModule, 
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
+    
 
   ],
   providers: [],
