@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { User } from './User';
+import { delay } from 'q';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -20,10 +21,18 @@ export class LoginService {
   constructor(private http: HttpClient,
     ) { }
 
-    logUser (usuario: User): Observable<User> {
-      return this.http.post<User>(this.loginUrl, usuario, httpOptions).pipe(
-/*         tap((usuario: User) => console.log(`logeando usuario w/ email=${usuario.email}`)),
-          catchError(this.handleError<User>('logenadoUsuario'))*/);
+    logUser (usuario: User): Observable<Boolean> {
+
+     
+    /*   return this.http.post<User>(this.loginUrl, usuario, httpOptions).pipe(
+        tap(val => this.isLoggedIn = true)
+      tap((usuario: User) => console.log(`logeando usuario w/ email=${usuario.email}`)),
+          catchError(this.handleError<User>('logenadoUsuario'))); */
+
+    return this.http.post<Boolean>(this.loginUrl, usuario, httpOptions).pipe(
+      tap(val => this.isLoggedIn = true)
+    );
+
            
     }
 
